@@ -13,7 +13,7 @@ const Status = {
 const PokemonInfo = ({ pokemonName }) => {
     const {name} = useParams()
   const [pokemon, setPokemon] = useState(null);
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
     const [status, setStatus] = useState(Status.IDLE);
     
     useEffect(() => {
