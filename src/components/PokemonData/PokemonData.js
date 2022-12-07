@@ -1,5 +1,20 @@
+import { Link, useLocation } from "react-router-dom";
+import { ImUndo2 } from "react-icons/im";
+
 const PokemonData = ({ pokemon: { sprites, name, stats, moves } }) => {
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? "/";
+  
   return (
+    <>
+    <div>
+      <Link class="goBack" to={backLinkHref}>
+          <span>
+            <ImUndo2 style={{marginRight: 8}} />
+          </span>
+            Go back
+      </Link>
+    </div>
     <div>
       <img
         src={sprites.other['official-artwork'].front_default}
@@ -22,7 +37,8 @@ const PokemonData = ({ pokemon: { sprites, name, stats, moves } }) => {
           </li>
         ))}
       </ul>
-    </div>
+      </div>
+      </>
   );
 }
 

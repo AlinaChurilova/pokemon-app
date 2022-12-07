@@ -1,8 +1,8 @@
-@import-normalize; /* bring in normalize.css styles */
-
 $primaryColor: blueviolet;
-$secondColor: purple;
+$secondaryColor: purple;
 $auxiliaryColor: lavender;
+$whiteColor: white;
+$blackColor: black;
 
 body {
   margin: 0;
@@ -19,46 +19,83 @@ code {
     monospace;
 }
 
- .NavLink {
+img {
+ width: 300px;
+ height: 300px;
+}
+
+ .navLink {
   margin: 0 12px;
-   color: black;
-   text-decoration: none;
-   font-weight: 700;
-   font-size: 14px;
+  color: $blackColor;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
  }
 
  .activeNavLink {
-   background-color: $primaryColor;
-   color: white;
-   text-decoration: none;
-   font-weight: 700;
-   font-size: 14px;
-   padding: 8px;
+  background-color: $primaryColor;
+  color: $whiteColor;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px;
  }
 
- .ListApp {
-   display: flex;
-   list-style: none;
-   padding: 20px;
-   box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
-   border-radius: 0px 0px 4px 4px;
+ .listApp {
+  display: flex;
+  list-style: none;
+  padding: 20px;
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
+  border-radius: 0px 0px 4px 4px;
  }
 
- .search-form {
-   display: flex;
-   justify-content: flex-start;
-   padding: 8px;
-   margin-bottom: 24px;
+ .searchForm {
+  display: flex;
+  justify-content: flex-start;
+  padding: 8px;
+  margin-bottom: 24px;
+
+   &-button {
+    display: flex;
+    align-items: center;
+    color: $primaryColor;
+    background-color: $auxiliaryColor;
+    border-color: $secondaryColor;
+    padding: 6px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    &:hover {
+      background-color: $secondaryColor;
+      color: $whiteColor;
+    }
+   }
+ }
+ button {
+  align-items: center;
+  color: $whiteColor;
+  background-color: $secondaryColor;
+  border-color: $secondaryColor;
+  padding: 4px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+ }
+  
+ .btnBack {
+  margin-right: 12px;
+ }
+ 
+ .goBack {
+  display: inline-block;
+  text-align: center;
+  padding: 1px;
+  margin: 10px 0 10px 0;
+  border: 1px solid blueviolet;
+  text-decoration: none;
+  background-color: thistle;
+  color: $primaryColor;
  }
 
- .btn-primary {
-   display: flex;
-   align-items: center;
-   color: #fff;
-   background-color: $secondColor;
-   border-color: $auxiliaryColor;
-   padding: 6px;
-   font-weight: 400;
-   letter-spacing: 1.5px;
-
+ select {
+  margin-top: 10px;
+  padding: 6px;
  }

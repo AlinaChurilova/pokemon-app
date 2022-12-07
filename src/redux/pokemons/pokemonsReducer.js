@@ -1,23 +1,13 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import { fetchPokemons } from './pokemonsOperations';
+import { fetchPokemons, fetchPokemonsNext, sortedPokemons, fetchPokemonsPast } from './pokemonsOperations';
 
 const entities = createReducer([], {
-  [fetchPokemons.fulfilled]: (_, action) => action.payload,
+  [fetchPokemons.fulfilled]: (_, {payload}) => payload,
+  [fetchPokemonsNext.fulfilled]: (_, { payload }) => payload,
+  [fetchPokemonsPast.fulfilled]: (_, { payload }) => payload,
+  [sortedPokemons.fulfilled]: (_, { payload }) => payload, 
 });
-
-// const isLoading = createReducer(false, {
-//   [fetchBooks.pending]: () => true,
-//   [fetchBooks.fulfilled]: () => false,
-//   [fetchBooks.rejected]: () => false,
-// });
-
-// const error = createReducer(null, {
-//   [fetchBooks.rejected]: (_, action) => action.payload,
-//   [fetchBooks.pending]: () => null,
-// });
 
 export default combineReducers({
   entities,
-//   isLoading,
-//   error,
 });

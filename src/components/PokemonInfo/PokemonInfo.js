@@ -12,28 +12,29 @@ const Status = {
 };
 
 const PokemonInfo = ({ pokemonName }) => {
-    const {name} = useParams()
+  const {name} = useParams()
   const [pokemon, setPokemon] = useState(null);
   const [, setError] = useState(null);
-    const [status, setStatus] = useState(Status.IDLE);
+  const [status, setStatus] = useState(Status.IDLE);
     
-    useEffect(() => {
-        if (!name) {
-            return;
-        }
-        setStatus(Status.PENDING)
+  useEffect(() => {
+    if (!name) {
+        return;
+    }
+    
+    setStatus(Status.PENDING)
 
-        pokemonAPI
-        .fetchPokemon(name)
-        .then(pokemon => {
-        setPokemon(pokemon);
-        setStatus(Status.RESOLVED);
-      })
-      .catch(error => {
-        setError(error);
-        setStatus(Status.REJECTED);
-      });
-    }, [name])
+    pokemonAPI
+    .fetchPokemon(name)
+    .then(pokemon => {
+    setPokemon(pokemon);
+    setStatus(Status.RESOLVED);
+  })
+  .catch(error => {
+    setError(error);
+    setStatus(Status.REJECTED);
+  });
+  }, [name])
 
   useEffect(() => {
     if (!pokemonName) {
@@ -43,15 +44,15 @@ const PokemonInfo = ({ pokemonName }) => {
     setStatus(Status.PENDING);
 
     pokemonAPI
-      .fetchPokemon(pokemonName)
-      .then(pokemon => {
-        setPokemon(pokemon);
-        setStatus(Status.RESOLVED);
-      })
-      .catch(error => {
-        setError(error);
-        setStatus(Status.REJECTED);
-      });
+    .fetchPokemon(pokemonName)
+    .then(pokemon => {
+    setPokemon(pokemon);
+    setStatus(Status.RESOLVED);
+    })
+    .catch(error => {
+    setError(error);
+    setStatus(Status.REJECTED);
+  });
   }, [pokemonName]);
 
   if (status === Status.IDLE) {

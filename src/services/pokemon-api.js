@@ -5,36 +5,33 @@ async function fetchListPokemon() {
   return data;
 }
 
+async function fetchListPokemonNext(data) {
+  const  res  = await axios.get(`${data}`);
+  return res.data;
+}
+
+async function fetchListPokemonPast(data) {
+  const  res  = await axios.get(`${data}`);
+  return res.data;
+}
+
+async function fetchSortedPokemons(type) {
+  const  res  = await axios.get(`https://pokeapi.co/api/v2/pokemon?&limit=20&type/${type}`);
+  console.log(`res`, res);
+  return res;
+}
+
 async function fetchPokemon(name) {
   const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
   return data;
 }
 
-// function fetchPokemon(name) {
-//   return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`).then(response => {
-//     if (response.ok) {
-//       return response.json();
-//     }
-
-//     return Promise.reject(new Error(`Нет покемона с именем ${name}`));
-//   });
-// }
-
-// function fetchListPokemon () {
-//   return fetch('https://pokeapi.co/api/v2/pokemon?offset=20&limit=20').then(response => {
-//     if (response.ok) {
-//       return response.json();
-//     }
-//   });
-// }
-
 const api = {
   fetchPokemon,
   fetchListPokemon,
+  fetchListPokemonNext,
+  fetchSortedPokemons,
+  fetchListPokemonPast,
 };
 
 export default api;
-
-
-
-// 'https://pokeapi.co/api/v2/pokemon?offset=20&limit=20'  - забрать всех покемонов
