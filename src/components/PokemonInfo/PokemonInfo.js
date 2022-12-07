@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import PokemonData from '../PokemonData';
 import pokemonAPI from '../../services/pokemon-api';
 import { useParams } from 'react-router-dom';
+import Notiflix from 'notiflix';
 
 const Status = {
   IDLE: 'idle',
@@ -54,15 +55,15 @@ const PokemonInfo = ({ pokemonName }) => {
   }, [pokemonName]);
 
   if (status === Status.IDLE) {
-    return <div>Введите имя покемона.</div>;
+    return <div>Please enter pokemon name</div>;
   }
 
   if (status === Status.PENDING) {
-    return <div>Загружаем...</div>;
+    return <div>Loading...</div>;
   }
 
   if (status === Status.REJECTED) {
-    return  <div>Не найдено. Повторите попытку.</div>;
+    return  Notiflix.Notify.failure('Not found. Please try again.');
   }
 
   if (status === Status.RESOLVED) {

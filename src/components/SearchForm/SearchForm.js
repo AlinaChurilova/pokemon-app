@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ImSearch } from 'react-icons/im';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
+import Notiflix from 'notiflix';
 
 const styles = { form: { marginBottom: 20 } };
 
@@ -15,7 +16,8 @@ const PokemonForm = ({ onSubmit }) => {
     event.preventDefault();
 
     if (pokemonName.trim() === '') {
-      toast.error('Введите имя покемона.');
+      // toast.error('Please enter pokemon name');
+      Notiflix.Notify.info(`Please enter pokemon name`);
       return;
     }
 
@@ -24,16 +26,17 @@ const PokemonForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={styles.form}>
+    <form class="search-form" onSubmit={handleSubmit} style={styles.form}>
       <input
         type="text"
         name="pokemonName"
         value={pokemonName}
         onChange={handleNameChange}
+        placeholder="Search pokemons..."
       />
-      <button type="submit">
+      <button type="submit" class="btn-primary">
         <ImSearch style={{ marginRight: 8 }} />
-        Найти
+        Search
       </button>
     </form>
   );

@@ -1,0 +1,64 @@
+@import-normalize; /* bring in normalize.css styles */
+
+$primaryColor: blueviolet;
+$secondColor: purple;
+$auxiliaryColor: lavender;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $auxiliaryColor;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+ .NavLink {
+  margin: 0 12px;
+   color: black;
+   text-decoration: none;
+   font-weight: 700;
+   font-size: 14px;
+ }
+
+ .activeNavLink {
+   background-color: $primaryColor;
+   color: white;
+   text-decoration: none;
+   font-weight: 700;
+   font-size: 14px;
+   padding: 8px;
+ }
+
+ .ListApp {
+   display: flex;
+   list-style: none;
+   padding: 20px;
+   box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
+   border-radius: 0px 0px 4px 4px;
+ }
+
+ .search-form {
+   display: flex;
+   justify-content: flex-start;
+   padding: 8px;
+   margin-bottom: 24px;
+ }
+
+ .btn-primary {
+   display: flex;
+   align-items: center;
+   color: #fff;
+   background-color: $secondColor;
+   border-color: $auxiliaryColor;
+   padding: 6px;
+   font-weight: 400;
+   letter-spacing: 1.5px;
+
+ }
